@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import matter from 'gray-matter'
@@ -137,7 +137,7 @@ function BlogPostPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
     const { post, label, className } = props
 
     return (
-      <Link href={`${post.path}`} as={`${post.path}`}>
+      <Link legacyBehavior href={`${post.path}`} as={`${post.path}`}>
         <div className={className}>
           <div className="border-scale-500 hover:bg-scale-100 dark:hover:bg-scale-300 cursor-pointer rounded border p-6 transition">
             <div className="space-y-4">
@@ -265,7 +265,7 @@ function BlogPostPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
                       {author.map((author: any, i: number) => {
                         return (
                           <div className="mr-4 w-max" key={i}>
-                            <Link href={author.author_url} target="_blank">
+                            <Link legacyBehavior href={author.author_url} target="_blank">
                               <a className="cursor-pointer">
                                 <div className="flex items-center gap-3">
                                   {author.author_image_url && (
@@ -357,7 +357,12 @@ function BlogPostPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
                       </div>
                       <div className="space-y-2">
                         {props.relatedPosts.map((post) => (
-                          <Link href={`${post.path}`} as={`${post.path}`} key={post.slug}>
+                          <Link
+                            legacyBehavior
+                            href={`${post.path}`}
+                            as={`${post.path}`}
+                            key={post.slug}
+                          >
                             <div>
                               <p className="cursor-pointer">
                                 <div className="flex gap-2">
@@ -374,7 +379,7 @@ function BlogPostPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
                           </Link>
                         ))}
                         <div className="mt-2">
-                          <Link href={`/blog`} passHref>
+                          <Link legacyBehavior href={`/blog`} passHref>
                             <a className="text-scale-1100 hover:text-scale-1200 cursor-pointer text-xs">
                               View all posts
                             </a>

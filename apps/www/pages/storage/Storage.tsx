@@ -5,7 +5,7 @@ import StoragePermissionsData from 'data/products/storage/permissions-examples'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import ImageCarousel from '~/components/Carousels/ImageCarousel'
 import SplitCodeBlockCarousel from '~/components/Carousels/SplitCodeBlockCarousel'
@@ -184,7 +184,7 @@ function StoragePage() {
                     title="CDN"
                     text="Serve from over 285 cities globally to reduce latency."
                   />
-                  <Link href="/docs/guides/storage/cdn" passHref>
+                  <Link legacyBehavior href="/docs/guides/storage/cdn" passHref>
                     <a>
                       <Button
                         size="small"
@@ -203,7 +203,7 @@ function StoragePage() {
                     title="Image Optimizations and Transformations"
                     text="Resize and compress your media files on the fly."
                   />
-                  <Link href="/docs/guides/storage/image-transformations" passHref>
+                  <Link legacyBehavior href="/docs/guides/storage/image-transformations" passHref>
                     <a>
                       <Button
                         size="small"
@@ -250,7 +250,11 @@ function StoragePage() {
                         policies.
                       </p>
 
-                      <Link href="/docs/reference/javascript/storage-createbucket" passHref>
+                      <Link
+                        legacyBehavior
+                        href="/docs/reference/javascript/storage-createbucket"
+                        passHref
+                      >
                         <a>
                           <Button
                             size="small"

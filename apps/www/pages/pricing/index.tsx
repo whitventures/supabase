@@ -122,7 +122,7 @@ export default function IndexPage() {
           <p className="p">{priceDescription}</p>
         </div>
         <p className="p">{description}</p>
-        <Link href="https://supabase.com/dashboard/new" passHref>
+        <Link legacyBehavior href="https://supabase.com/dashboard/new" passHref>
           <a>
             <Button size="medium" block>
               Get started
@@ -160,7 +160,7 @@ export default function IndexPage() {
                 Start building for free, collaborate with a team, then scale to millions of users.
               </p>
               <div className="w-full flex justify-center items-center opacity-0 !animate-[fadeIn_0.5s_cubic-bezier(0.25,0.25,0,1)_0.5s_both]">
-                <Link href="/blog/organization-based-billing" passHref>
+                <Link legacyBehavior href="/blog/organization-based-billing" passHref>
                   <a
                     target="_blank"
                     className="
@@ -396,7 +396,7 @@ export default function IndexPage() {
                     {addon.description}
                   </p>
                   <div className="flex items-center justify-between mt-4 mb-4 lg:mb-8">
-                    <Link href={addon.leftCtaLink} as={addon.leftCtaLink}>
+                    <Link legacyBehavior href={addon.leftCtaLink} as={addon.leftCtaLink}>
                       <a>
                         <Button size="tiny" type="default">
                           {addon.leftCtaText}
@@ -421,6 +421,7 @@ export default function IndexPage() {
           <div className="flex flex-col md:flex-row items-center gap-4 justify-center text-center">
             <span className="prose">Got something you'd like to see here?</span>
             <Link
+              legacyBehavior
               href="https://github.com/supabase/supabase/discussions/categories/feature-requests"
               as="https://github.com/supabase/supabase/discussions/categories/feature-requests"
             >
@@ -801,7 +802,7 @@ export default function IndexPage() {
                             )}
 
                             <div className={plan.name === 'Enterprise' ? 'mt-auto' : 'mt-8'}>
-                              <Link href={plan.href} as={plan.href}>
+                              <Link legacyBehavior href={plan.href} as={plan.href}>
                                 <a>
                                   <Button
                                     size="tiny"
@@ -868,6 +869,7 @@ export default function IndexPage() {
 
                     <td className="px-6 pt-5">
                       <Link
+                        legacyBehavior
                         href="https://supabase.com/dashboard/new?plan=free"
                         as="https://supabase.com/dashboard/new?plan=free"
                       >
@@ -881,6 +883,7 @@ export default function IndexPage() {
 
                     <td className="px-6 pt-5">
                       <Link
+                        legacyBehavior
                         href="https://supabase.com/dashboard/new?plan=pro"
                         as="https://supabase.com/dashboard/new?plan=pro"
                       >
@@ -893,7 +896,7 @@ export default function IndexPage() {
                     </td>
 
                     <td className="px-6 pt-5">
-                      <Link href="https://supabase.com/dashboard/new?plan=team">
+                      <Link legacyBehavior href="https://supabase.com/dashboard/new?plan=team">
                         <a>
                           <Button size="tiny" type="primary" block>
                             Get Started
@@ -903,7 +906,7 @@ export default function IndexPage() {
                     </td>
 
                     <td className="px-6 pt-5">
-                      <Link href="https://forms.supabase.com/enterprise">
+                      <Link legacyBehavior href="https://forms.supabase.com/enterprise">
                         <a>
                           <Button size="tiny" type="default" block>
                             Contact Us

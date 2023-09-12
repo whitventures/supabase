@@ -14,12 +14,12 @@ export default function LaunchHero() {
         </h2>
       </div>
       <div className="flex gap-3">
-        <Link href="#launch-week-5-day-5">
+        <Link legacyBehavior href="#launch-week-5-day-5">
           <Button type="primary" size="small" className="text-white">
             Latest release
           </Button>
         </Link>
-        <Link href="#launch-week--hackathon">
+        <Link legacyBehavior href="#launch-week--hackathon">
           <Button type="default" size="small">
             Join the Hackathon
           </Button>

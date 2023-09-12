@@ -1,5 +1,5 @@
 import authors from 'lib/authors.json'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import React from 'react'
 import Author from '~/types/author'
@@ -25,7 +25,7 @@ const BlogListItem = ({ post }: Props) => {
 
   return (
     <div>
-      <Link href={post.path}>
+      <Link legacyBehavior href={post.path}>
         <a className="group inline-block min-w-full">
           <div className="flex flex-col space-y-6">
             <div className="flex flex-col space-y-3">

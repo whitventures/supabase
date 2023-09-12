@@ -4,7 +4,7 @@ import { Article } from '../../types'
 
 export const ProductButtonListItem = (props: Article) => {
   return (
-    <Link href={props.url}>
+    <Link legacyBehavior href={props.url}>
       <div className="inline-block">
         <button
           className=" 

@@ -19,12 +19,12 @@ export default function LaunchHero() {
           </div>
 
           <div className="flex gap-3">
-            <Link href="https://www.madewithsupabase.com/tag/Launch%20Week%205">
+            <Link legacyBehavior href="https://www.madewithsupabase.com/tag/Launch%20Week%205">
               <Button type="primary" size="small" className="text-white">
                 view projects
               </Button>
             </Link>
-            <Link href="/blog/launch-week-5-hackathon">
+            <Link legacyBehavior href="/blog/launch-week-5-hackathon">
               <Button type="default" size="small">
                 Learn more
               </Button>

@@ -31,7 +31,7 @@ function GithubExamples() {
             Supported by a network of early advocates, contributors, and champions.
           </p>
           <div className="flex items-center justify-center gap-2 py-4">
-            <Link href="/docs/guides/auth/overview" passHref>
+            <Link legacyBehavior href="/docs/guides/auth/overview" passHref>
               <a>
                 <Button size="small" type="default" icon={<IconBookOpen size={12} />}>
                   View guides
@@ -39,6 +39,7 @@ function GithubExamples() {
               </a>
             </Link>
             <Link
+              legacyBehavior
               href="https://github.com/supabase/supabase/tree/master/examples"
               as="https://github.com/supabase/supabase/tree/master/examples"
               passHref

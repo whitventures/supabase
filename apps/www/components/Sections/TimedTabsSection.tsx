@@ -5,7 +5,7 @@ import SectionContainer from '~/components/Layouts/SectionContainer'
 import { Button, IconArrowUpRight } from 'ui'
 import CodeBlock from '~/components/CodeBlock/CodeBlock'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 
 interface TabProps {
   label: string
@@ -135,7 +135,7 @@ const TimedTabsSection = ({
           </h2>
           <p className="text-scale-900 mb-4 max-w-sm">{paragraph}</p>
           {cta && (
-            <Link href={cta.link}>
+            <Link legacyBehavior href={cta.link}>
               <a className="">
                 <Button type="default" size="small" icon={<IconArrowUpRight />}>
                   {cta.label ?? 'Explore more'}
@@ -206,7 +206,7 @@ const TimedTabsSection = ({
 }
 
 const OpenInColab = ({ colabUrl, className }: { colabUrl: string; className?: string }) => (
-  <Link href={colabUrl}>
+  <Link legacyBehavior href={colabUrl}>
     <a
       target="_blank"
       className={[

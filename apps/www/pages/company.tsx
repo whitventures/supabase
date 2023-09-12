@@ -12,7 +12,7 @@ import CommunityData from 'data/Community'
 import CompaniesData from 'data/Companies'
 import InvestorData from 'data/Investors'
 
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 import { Button, Card, Space } from 'ui'
@@ -304,7 +304,7 @@ const Press = () => {
       </div>
       <div className="mx-auto mt-5 grid gap-5 lg:max-w-none lg:grid-cols-3">
         {PressData.filter((x) => x.type == 'article').map((x) => (
-          <Link href={x.href} key={x.href}>
+          <Link legacyBehavior href={x.href} key={x.href}>
             <a target="_blank">
               <Card key={`press_${x.href}`} hoverable className="dark:bg-scale-400 h-36 bg-white">
                 <Space className="h-40 justify-between" direction="vertical">
@@ -322,7 +322,7 @@ const Press = () => {
       </div>
       <div className="mx-auto mt-5 grid gap-5 sm:grid-cols-2 lg:max-w-none lg:grid-cols-4">
         {PressData.filter((x) => x.type == 'podcast').map((x) => (
-          <Link href={x.href} key={x.href}>
+          <Link legacyBehavior href={x.href} key={x.href}>
             <a target="_blank">
               <Card key={`press_${x.href}`} hoverable className="dark:bg-scale-400 h-36 bg-white">
                 <Space className="h-40 justify-between" direction="vertical">

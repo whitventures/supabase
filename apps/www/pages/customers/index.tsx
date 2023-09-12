@@ -55,7 +55,8 @@ function CustomerStoriesPage(props: any) {
         <meta name="description" content={meta.description} />
         <meta property="og:image" content={meta.image} />
         <meta name="twitter:image" content={meta.image} />
-        <link
+        <Link
+          legacyBehavior
           rel="alternate"
           type="application/rss+xml"
           title="RSS feed for customer stories"
@@ -93,7 +94,7 @@ function CustomerStoriesPage(props: any) {
               </motion.div>
               <div className="mx-auto my-12 md:my-20 grid grid-cols-12 gap-6 not-prose">
                 {caseStudyThumbs.map((caseStudy: any, i: number) => (
-                  <Link href={`${caseStudy.link}`} key={caseStudy.title} passHref>
+                  <Link legacyBehavior href={`${caseStudy.link}`} key={caseStudy.title} passHref>
                     <motion.a
                       className="col-span-12 md:col-span-4"
                       initial={{ opacity: 0, y: 20 }}

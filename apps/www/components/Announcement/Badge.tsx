@@ -5,7 +5,7 @@ import { ArrowNarrowRightIcon } from '@heroicons/react/outline'
 
 const AnnouncementBadge = () => (
   <div className="w-full max-w-xl flex justify-center opacity-0 !animate-[fadeIn_0.5s_cubic-bezier(0.25,0.25,0,1)_0.5s_both]">
-    <Link href="/launch-week">
+    <Link legacyBehavior href="/launch-week">
       <a
         className="
           group

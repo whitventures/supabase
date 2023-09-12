@@ -60,6 +60,7 @@ export default function ComputePricingModal({ showComputeModal, setShowComputeMo
                 you've used. Paid plans come with $10 in Compute Credits to cover one Starter
                 instance or parts of any other instance. Read more on{' '}
                 <Link
+                  legacyBehavior
                   href="https://supabase.com/docs/guides/platform/org-based-billing#usage-based-billing-for-compute"
                   passHref
                 >
@@ -68,7 +69,11 @@ export default function ComputePricingModal({ showComputeModal, setShowComputeMo
                   </a>
                 </Link>{' '}
                 or{' '}
-                <Link href="https://supabase.com/docs/guides/platform/compute-add-ons" passHref>
+                <Link
+                  legacyBehavior
+                  href="https://supabase.com/docs/guides/platform/compute-add-ons"
+                  passHref
+                >
                   <a target="_blank" className="transition text-brand hover:text-brand-600">
                     Compute Add-ons
                   </a>

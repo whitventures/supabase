@@ -35,7 +35,7 @@ const FeaturesSection = ({ title, paragraph, cta, features }: Props) => {
             </h2>
             <p className="text-scale-900 mb-4">{paragraph}</p>
             {cta && (
-              <Link href={cta.link}>
+              <Link legacyBehavior href={cta.link}>
                 <a>
                   <Button type="default" size="small" icon={<IconArrowUpRight />}>
                     {cta.label ?? 'Explore documentation'}

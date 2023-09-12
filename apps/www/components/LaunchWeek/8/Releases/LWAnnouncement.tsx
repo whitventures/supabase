@@ -1,7 +1,7 @@
 import React from 'react'
 import { SmallCard } from './components'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 // import days from './lw8_data'
 // import { ExpandableVideo } from 'ui'
 
@@ -68,7 +68,7 @@ const LWAnnouncement = ({
             }
           />
         ) : ( */}
-        <Link href="/launch-week">
+        <Link legacyBehavior href="/launch-week">
           <a className="flex flex-row justify-between items-center w-full h-full gap-2 text-left">
             {announcement}
           </a>

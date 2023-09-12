@@ -196,13 +196,13 @@ function IntegrationPartnersPage(props: Props) {
                   </div>
                 </div>
                 {/* <div className="flex flex-col space-y-1 sm:flex-row sm:space-y-0 sm:space-x-6">
-                  <Link href={`/partners/integrations`}>
+                  <Link legacyBehavior  href={`/partners/integrations`}>
                     <a className="text-scale-1200">INTEGRATIONS</a>
                   </Link>
-                  <Link href={`/partners/experts`}>
+                  <Link legacyBehavior  href={`/partners/experts`}>
                     <a className="transition-colors text-brand hover:text-brand-300">EXPERTS</a>
                   </Link>
-                  <Link href={`/partners/integrations#become-a-partner`}>
+                  <Link legacyBehavior  href={`/partners/integrations#become-a-partner`}>
                     <a className="flex items-center space-x-1 transition-colors text-brand hover:text-brand-300">
                       BECOME A PARTNER <IconArrowRight />
                     </a>

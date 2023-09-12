@@ -4,7 +4,7 @@ import { Article } from '../../types'
 
 const ArticleButtonListItem = (props: Article) => {
   return (
-    <Link href={props.url}>
+    <Link legacyBehavior href={props.url}>
       <a className="group mr-2 mb-2">
         <div className="flex flex-row">
           <div>

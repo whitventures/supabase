@@ -51,7 +51,11 @@ const PartnerLinkBox = ({
     </div>
   )
 
-  return <Link href={href}>{content}</Link>
+  return (
+    <Link legacyBehavior href={href}>
+      {content}
+    </Link>
+  )
 }
 
 export default PartnerLinkBox

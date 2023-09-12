@@ -38,7 +38,7 @@ function APISection(props: Props) {
         <h2 className="h3">{props.title}</h2>
         <div className="p">{props.text}</div>
         {props.documentation_link && (
-          <Link href={props.documentation_link} as={props.documentation_link}>
+          <Link legacyBehavior href={props.documentation_link} as={props.documentation_link}>
             <a>
               <Button size="small" className="mt-4" type="default" icon={<IconArrowUpRight />}>
                 Explore documentation

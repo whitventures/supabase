@@ -79,6 +79,7 @@ const Index = ({}: Props) => {
                     pt-14 dark:border-gray-600"
                   >
                     <Link
+                      legacyBehavior
                       href="https://github.com/supabase/supabase/issues"
                       as="https://github.com/supabase/supabase/issues"
                     >
@@ -127,6 +128,7 @@ const Index = ({}: Props) => {
                     dark:border-gray-600 lg:justify-evenly"
                   >
                     <Link
+                      legacyBehavior
                       href="https://github.com/supabase/supabase/discussions"
                       as="https://github.com/supabase/supabase/discussions"
                     >
@@ -136,7 +138,11 @@ const Index = ({}: Props) => {
                         </Button>
                       </a>
                     </Link>
-                    <Link href="https://discord.supabase.com/" as="https://discord.supabase.com/">
+                    <Link
+                      legacyBehavior
+                      href="https://discord.supabase.com/"
+                      as="https://discord.supabase.com/"
+                    >
                       <a target="_blank">
                         <Button
                           size="medium"

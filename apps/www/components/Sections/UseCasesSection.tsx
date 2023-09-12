@@ -88,7 +88,7 @@ const UseCase = ({
                 {useCase.cta.label ?? 'View example'}
               </Button>
             ) : (
-              <Link href={useCase.cta.link}>
+              <Link legacyBehavior href={useCase.cta.link}>
                 <a target="_blank">
                   <Button size="tiny" type="default" iconRight={<IconArrowUpRight />}>
                     {useCase.cta.label ?? 'View example'}

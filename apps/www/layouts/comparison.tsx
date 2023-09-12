@@ -1,6 +1,6 @@
 import authors from 'lib/authors.json'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -36,7 +36,7 @@ const LayoutComparison = ({ components, props }: Props) => {
   const NextCard = (props: any) => {
     const { post, label, className } = props
     return (
-      <Link href={`${post.url}`} as={`${post.url}`}>
+      <Link legacyBehavior href={`${post.url}`} as={`${post.url}`}>
         <div className={className}>
           <div className="border-scale-500 hover:bg-scale-100 dark:hover:bg-scale-300 cursor-pointer rounded border p-6 transition">
             <div className="space-y-4">
@@ -101,7 +101,7 @@ const LayoutComparison = ({ components, props }: Props) => {
                 {author.map((author: any) => {
                   return (
                     <div className="mt-6 mb-8 mr-4 w-max lg:mb-0">
-                      <Link href={author.author_url}>
+                      <Link legacyBehavior href={author.author_url}>
                         <a className="cursor-pointer">
                           <div className="flex items-center gap-3">
                             {author.author_image_url && (
@@ -137,6 +137,7 @@ const LayoutComparison = ({ components, props }: Props) => {
               <div className="text-scale-900 dark:text-scale-1000 text-sm">Share this article</div>
               <div className="mt-4 flex items-center space-x-4">
                 <Link
+                  legacyBehavior
                   passHref
                   href={`https://twitter.com/share?text=${props.blog.title}&url=https://supabase.com/blog/${props.blog.slug}`}
                 >
@@ -157,6 +158,7 @@ const LayoutComparison = ({ components, props }: Props) => {
                 </Link>
 
                 <Link
+                  legacyBehavior
                   passHref
                   href={`https://www.linkedin.com/shareArticle?url=https://supabase.com/blog/${props.blog.slug}&title=${props.blog.title}`}
                 >

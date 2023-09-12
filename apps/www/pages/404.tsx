@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Button } from 'ui'
@@ -60,7 +60,7 @@ const Error404 = () => {
             </p>
           </div>
           <div className="flex items-center space-x-4">
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a>
                 <Button size="small" className="text-white">
                   Head back

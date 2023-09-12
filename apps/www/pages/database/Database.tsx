@@ -6,7 +6,7 @@ import SqlViewCarouselData from 'data/products/database/sql-view-carousel.json'
 import TableViewCarouselData from 'data/products/database/table-view-carousel.json'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -297,7 +297,7 @@ function Database() {
                 title="40+ preinstalled extensions"
                 text="We only show a few of the extensions supported by supabase here, but we preinstall many more that you can use right away."
               />
-              <Link href="/docs/guides/database" passHref>
+              <Link legacyBehavior href="/docs/guides/database" passHref>
                 <a>
                   <Button size="small" type="default" icon={<IconArrowUpRight />}>
                     Explore documentation

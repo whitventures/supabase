@@ -67,7 +67,7 @@ const HeroFrameworks = ({ className }: { className?: string }) => {
       <small className="small !text-scale-1100">Works seamlessly with 20+ frameworks</small>
       <div className="w-full sm:max-w-lg mt-4 md:mt-3 lg:ml-0 flex flex-wrap items-center justify-center gap-1 xs:gap-2 sm:flex-nowrap">
         {frameworks.map((framework) => (
-          <Link href={framework.docs} key={framework.name}>
+          <Link legacyBehavior href={framework.docs} key={framework.name}>
             <a
               key={framework.name}
               className="block focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-lg"

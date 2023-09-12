@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.min.css'
@@ -42,7 +42,7 @@ function Partner({
         <SectionContainer>
           <div className="col-span-12 mx-auto mb-2 max-w-5xl space-y-12 lg:col-span-2">
             {/* Back button */}
-            <Link href="/partners/experts">
+            <Link legacyBehavior href="/partners/experts">
               <a className="text-scale-1200 hover:text-scale-1000 flex cursor-pointer items-center transition-colors">
                 <IconChevronLeft style={{ padding: 0 }} />
                 Back
@@ -159,7 +159,10 @@ function Partner({
 
                   <div className="flex items-center justify-between py-2">
                     <span className="text-scale-900">Category</span>
-                    <Link href={`/partners/experts#${partner.category.toLowerCase()}`}>
+                    <Link
+                      legacyBehavior
+                      href={`/partners/experts#${partner.category.toLowerCase()}`}
+                    >
                       <a className="text-brand hover:text-brand-300 transition-colors">
                         {partner.category}
                       </a>

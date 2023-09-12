@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import React from 'react'
 import days from '~/components/LaunchWeek/7/lw7_days'
@@ -36,6 +36,7 @@ const StepCard = ({ step }: { step: any }) => (
     whileHover="hover"
   >
     <Link
+      legacyBehavior
       href={
         (step.blog || step.github || step.hackernews || step.blog || step.docs || '#') as string
       }

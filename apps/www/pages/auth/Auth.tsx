@@ -4,7 +4,7 @@ import ApiExamples from 'data/products/auth/auth-api-examples'
 import AuthSqlRulesExamples from 'data/products/auth/auth-sql-rules-examples'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import AuthWidgetSection from '~/components/AuthWidget/AuthWidgetSection'
@@ -218,7 +218,7 @@ function AuthPage() {
               </p>
               <p className="p">Policies can be written in SQL or using the dashboard online.</p>
 
-              <Link href="/docs/guides/auth#policy-examples">
+              <Link legacyBehavior href="/docs/guides/auth#policy-examples">
                 <a>
                   <Button size="small" type="default" className="mt-4" icon={<IconArrowUpRight />}>
                     Explore documentation

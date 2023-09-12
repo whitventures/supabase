@@ -3,6 +3,7 @@ import Link from 'next/link'
 const ShareArticleActions = ({ title, slug }: { title: string; slug: string }) => (
   <div className="mt-4 flex items-center space-x-4">
     <Link
+      legacyBehavior
       passHref
       href={`https://twitter.com/share?text=${title}&url=https://supabase.com/blog/${slug}`}
     >
@@ -23,6 +24,7 @@ const ShareArticleActions = ({ title, slug }: { title: string; slug: string }) =
     </Link>
 
     <Link
+      legacyBehavior
       passHref
       href={`https://www.linkedin.com/shareArticle?url=https://supabase.com/blog/${slug}&title=${title}`}
     >
@@ -39,6 +41,7 @@ const ShareArticleActions = ({ title, slug }: { title: string; slug: string }) =
       </a>
     </Link>
     <Link
+      legacyBehavior
       passHref
       href={`https://news.ycombinator.com/submitlink?u=https://supabase.com/blog/${slug}&t=${title}`}
     >

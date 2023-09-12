@@ -4,7 +4,7 @@ import CustomerStoriesData from 'data/CustomerStories.json'
 import { useRouter } from 'next/router'
 import ProductIcon from '../ProductIcon'
 import { Badge } from 'ui'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import TextLink from '../TextLink'
 
@@ -32,7 +32,7 @@ const Product = () => {
     )
     return (
       url && (
-        <Link href={url} key={name}>
+        <Link legacyBehavior href={url} key={name}>
           <a className="hover:bg-scale-300 dark:hover:bg-scale-500 col-span-6 rounded p-3 transition">
             {content}
           </a>
@@ -56,7 +56,7 @@ const Product = () => {
               }
               return (
                 <li className="flow-root" key={`flyout_case_${idx}`}>
-                  <Link href={customer.url}>
+                  <Link legacyBehavior href={customer.url}>
                     <a className="dark:hover:bg-dark-700 flex items-center rounded-lg border p-3 transition duration-150 ease-in-out hover:bg-gray-100">
                       <div className="relative hidden mx-2 h-12 w-32 flex-shrink-0 overflow-auto rounded-md sm:block">
                         <Image

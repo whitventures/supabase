@@ -1,6 +1,6 @@
 import { Button, Divider, IconArrowUpRight, IconGitHub, IconTriangle, Space } from 'ui'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 
 function ExampleCard(props: any) {
   return (
@@ -45,7 +45,7 @@ function ExampleCard(props: any) {
           border-b border-r border-l
           border-t-0 p-5"
         >
-          <Link href={props.repo_url} as={props.repo_url} passHref>
+          <Link legacyBehavior href={props.repo_url} as={props.repo_url} passHref>
             <a
               className="text-scale-1100 hover:text-scale-1200 flex flex-row items-center text-sm"
               target="_blank"
@@ -64,7 +64,7 @@ function ExampleCard(props: any) {
               </a>
             )}
             {props.demo_url && (
-              <Link href={props.demo_url} as={props.demo_url}>
+              <Link legacyBehavior href={props.demo_url} as={props.demo_url}>
                 <a target="_blank" tabIndex={-1}>
                   <Button size="tiny" type="default" iconRight={<IconArrowUpRight />}>
                     Launch Demo
@@ -73,7 +73,7 @@ function ExampleCard(props: any) {
               </Link>
             )}
             {!props.demo_url && (
-              <Link href={props.repo_url} as={props.repo_url}>
+              <Link legacyBehavior href={props.repo_url} as={props.repo_url}>
                 <a target="_blank" tabIndex={-1}>
                   <Button size="tiny" type="default" iconRight={<IconArrowUpRight />}>
                     View Code

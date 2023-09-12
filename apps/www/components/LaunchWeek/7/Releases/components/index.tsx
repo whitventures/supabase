@@ -198,7 +198,7 @@ export const ChipLink = ({
       {children}
     </span>
   ) : !!href ? (
-    <Link href={href}>
+    <Link legacyBehavior href={href}>
       <a
         target={target ?? '_self'}
         rel="noopener"
@@ -272,7 +272,7 @@ export const SectionButtons = ({
         <ChipLink href={url}>
           Read
           <div className="bg-[#313131] rounded-full hidden sm:inline-block p-1 ml-2">
-            <LinkSvg />
+            <Link legacyBehavior Svg />
           </div>
         </ChipLink>
       )}

@@ -16,7 +16,7 @@ import ScrollProgress from '~/components/ScrollProgress'
 
 import { useIsLoggedIn, useTheme } from 'common'
 import TextLink from '../TextLink'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
 import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
 
@@ -93,7 +93,7 @@ const Nav = () => {
       </div>
     )
     return url ? (
-      <Link href={url} key={`solution_${idx}`}>
+      <Link legacyBehavior href={url} key={`solution_${idx}`}>
         <a className="flex flex-col justify-between p-3 my-2 -m-3 transition duration-150 ease-in-out rounded-lg dark:hover:bg-scale-600 hover:bg-gray-50">
           {content}
         </a>
@@ -225,7 +225,7 @@ const Nav = () => {
             <div className="flex items-center justify-center flex-1 sm:items-stretch lg:justify-between">
               <div className="flex items-center">
                 <div className="flex items-center flex-shrink-0">
-                  <Link href="/" as="/">
+                  <Link legacyBehavior href="/" as="/">
                     <a className="block w-auto h-6">
                       <Image
                         src={isDarkMode ? supabaseLogoWordmarkDark : supabaseLogoWordmarkLight}
@@ -237,7 +237,7 @@ const Nav = () => {
                   </Link>
 
                   {isLaunchWeekPage && (
-                    <Link href="/launch-week" as="/launch-week">
+                    <Link legacyBehavior href="/launch-week" as="/launch-week">
                       <a className="hidden ml-2 xl:block font-mono text-sm uppercase leading-4">
                         Launch Week
                       </a>
@@ -255,7 +255,7 @@ const Nav = () => {
                     onClick={() => handleToggle(() => setOpenDevelopers(!openDevelopers))}
                     active={openDevelopers}
                   />
-                  <Link href="/pricing">
+                  <Link legacyBehavior href="/pricing">
                     <a
                       className={[
                         `text-scale-1200 hover:text-brand hover:border-brand dark:text-dark-100 dark:hover:border-dark-100 inline-flex items-center
@@ -267,7 +267,7 @@ const Nav = () => {
                       Pricing
                     </a>
                   </Link>
-                  <Link href="/docs">
+                  <Link legacyBehavior href="/docs">
                     <a
                       className={[
                         `text-scale-1200 hover:text-brand hover:border-brand dark:text-dark-100 dark:hover:border-dark-100 inline-flex items-center
@@ -279,7 +279,7 @@ const Nav = () => {
                       Docs
                     </a>
                   </Link>
-                  <Link href="/blog">
+                  <Link legacyBehavior href="/blog">
                     <a
                       className={[
                         `text-scale-1200 hover:text-brand hover:border-brand dark:text-dark-100 dark:hover:border-dark-100 inline-flex items-center
@@ -329,21 +329,21 @@ const Nav = () => {
                 </a>
 
                 {isLoggedIn ? (
-                  <Link href="/dashboard/projects">
+                  <Link legacyBehavior href="/dashboard/projects">
                     <a>
                       <Button className="hidden text-white lg:block">Dashboard</Button>
                     </a>
                   </Link>
                 ) : (
                   <>
-                    <Link href="https://supabase.com/dashboard">
+                    <Link legacyBehavior href="https://supabase.com/dashboard">
                       <a>
                         <Button type="default" className="hidden lg:block">
                           Sign in
                         </Button>
                       </a>
                     </Link>
-                    <Link href="https://supabase.com/dashboard">
+                    <Link legacyBehavior href="https://supabase.com/dashboard">
                       <a>
                         <Button className="hidden text-white lg:block">Start your project</Button>
                       </a>
@@ -400,24 +400,24 @@ const Nav = () => {
               {/* </div> */}
               <div className="mt-6 mb-12">
                 <div className="pt-2 pb-4 space-y-1">
-                  <Link href="https://supabase.com/dashboard">
+                  <Link legacyBehavior href="https://supabase.com/dashboard">
                     <a className="block pl-3 pr-4 text-base font-medium text-scale-900 dark:text-white">
                       Sign in
                     </a>
                   </Link>
                 </div>
                 <div className="pt-2 pb-4 space-y-1">
-                  <Link href="/docs">
+                  <Link legacyBehavior href="/docs">
                     <a className="block py-2 pl-3 pr-4 text-base font-medium rounded-md text-scale-900 dark:hover:bg-scale-600 hover:border-gray-300 hover:bg-gray-50 dark:text-white">
                       Developers
                     </a>
                   </Link>
-                  <Link href="/pricing">
+                  <Link legacyBehavior href="/pricing">
                     <a className="block py-2 pl-3 pr-4 text-base font-medium rounded-md text-scale-900 dark:hover:bg-scale-600 hover:border-gray-300 hover:bg-gray-50 dark:text-white">
                       Pricing
                     </a>
                   </Link>
-                  <Link href="/docs">
+                  <Link legacyBehavior href="/docs">
                     <a
                       target="_blank"
                       className="block py-2 pl-3 pr-4 text-base font-medium rounded-md text-scale-900 dark:hover:bg-scale-600 hover:border-gray-300 hover:bg-gray-50 dark:text-white"
@@ -425,7 +425,7 @@ const Nav = () => {
                       Docs
                     </a>
                   </Link>
-                  <Link href="/blog">
+                  <Link legacyBehavior href="/blog">
                     <a
                       target="_blank"
                       className="block py-2 pl-3 pr-4 text-base font-medium rounded-md text-scale-900 dark:hover:bg-scale-600 hover:border-gray-300 hover:bg-gray-50 dark:text-white"
@@ -433,7 +433,7 @@ const Nav = () => {
                       Blog
                     </a>
                   </Link>
-                  <Link href="/support">
+                  <Link legacyBehavior href="/support">
                     <a className="block py-2 pl-3 pr-4 text-base font-medium rounded-md text-scale-900 dark:hover:bg-scale-600 hover:border-gray-300 hover:bg-gray-50 dark:text-white">
                       Support
                     </a>

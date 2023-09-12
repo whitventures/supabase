@@ -69,7 +69,7 @@ const Announcement = ({
           </div>
         )}
         {children}
-        <Link href={link ?? announcement.link}>
+        <Link legacyBehavior href={link ?? announcement.link}>
           <a className="absolute inset-0 z-40" />
         </Link>
       </div>

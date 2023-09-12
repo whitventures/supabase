@@ -2,14 +2,14 @@ import React from 'react'
 import SectionContainer from '../../Layouts/SectionContainer'
 import { SmallCard } from '../8/Releases/components'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 
 const LW8CalloutsSection = () => {
   return (
     <SectionContainer className="!py-0 w-full !px-0 !max-w-none">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 scroll-mt-[105px]" id="hackathon">
         <SmallCard className="hover:from-scale-900 hover:to-scale-900">
-          <Link href="https://twitter.com/supabase/status/1688544202643111936">
+          <Link legacyBehavior href="https://twitter.com/supabase/status/1688544202643111936">
             <a
               target="_blank"
               className="flex flex-row justify-between items-center w-full h-full gap-2"
@@ -32,7 +32,7 @@ const LW8CalloutsSection = () => {
           </Link>
         </SmallCard>
         <SmallCard className="hover:from-scale-900 hover:to-scale-900">
-          <Link href="/blog/supabase-lw8-hackathon">
+          <Link legacyBehavior href="/blog/supabase-lw8-hackathon">
             <a className="flex flex-row justify-between items-center w-full h-full gap-2">
               <div className="relative flex-shrink flex items-center p-2 w-2/3 lg:w-1/2 md:w-auto">
                 <div className="flex flex-col gap-1 sm:pl-4">

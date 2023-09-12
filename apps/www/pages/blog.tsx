@@ -2,7 +2,7 @@ import fs from 'fs'
 import { useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 import { NextSeo } from 'next-seo'
@@ -174,7 +174,7 @@ function FeaturedThumb(blog: PostTypes) {
 
   return (
     <div key={blog.slug} className="w-full cursor-pointer">
-      <Link href={`${blog.path}`}>
+      <Link legacyBehavior href={`${blog.path}`}>
         <a className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative h-96 w-full overflow-auto rounded-lg border">
             <Image

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useBreakpoint } from 'common/hooks/useBreakpoint'
 import { UserData } from '../hooks/use-conf-data'
@@ -38,6 +38,7 @@ export default function TicketsGrid({ loadedUsers, isLoading, pageCount, offset 
 
         return (
           <Link
+            legacyBehavior
             href={`/launch-week/tickets/${user.username}`}
             key={`${user.username}-000${i}`}
             onClick={() => window.scrollTo(0, 0)}

@@ -44,7 +44,9 @@ function CategoriesIndex(props: Props) {
         <div className="container mx-auto px-8 py-16 sm:px-16 xl:px-20">
           <div className="text-scale-1000 flex space-x-1">
             <h1 className="cursor-pointer">
-              <Link href="/blog">Blog</Link>
+              <Link legacyBehavior href="/blog">
+                Blog
+              </Link>
               <span className="px-2">/</span>
               <span>{`${capitalizedCategory}`}</span>
             </h1>

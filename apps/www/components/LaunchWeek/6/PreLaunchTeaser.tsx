@@ -1,7 +1,7 @@
 import { NewspaperIcon } from '@heroicons/react/outline'
 import { Button } from 'ui'
 import authors from 'lib/authors.json'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 
 export function PreLaunchTeaser() {
@@ -87,7 +87,7 @@ export function PreLaunchTeaser() {
               </p>
             </div>
             <div>
-              <Link href="/blog/supabase-series-b">
+              <Link legacyBehavior href="/blog/supabase-series-b">
                 <Button type="default">Read more</Button>
               </Link>
             </div>

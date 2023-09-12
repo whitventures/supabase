@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import ReactMarkdown from 'react-markdown'
@@ -335,7 +335,7 @@ const CareerPage: NextPage = ({ jobs, contributors }: any) => {
                         `}
                         key={i}
                       >
-                        <Link href={contributor.html_url}>
+                        <Link legacyBehavior href={contributor.html_url}>
                           <a target="_blank">
                             <div className="relative w-full h-full">
                               <Image
@@ -484,7 +484,7 @@ const CareerPage: NextPage = ({ jobs, contributors }: any) => {
                   ) => {
                     return (
                       <div className="cursor-pointer md:cursor-default" key={i}>
-                        <Link href={job.absolute_url}>
+                        <Link legacyBehavior href={job.absolute_url}>
                           <div className="bg-white border-scale-300 drop-shadow-sm dark:bg-scale-300 border dark:border-scale-400 p-4 px-7 rounded-md sm:flex sm:items-center transition ease-out hover:bg-scale-100 dark:hover:bg-scale-400 hover:drop-shadow-md hover:cursor-pointer">
                             <h2 className="text-base min-w-[240px] lg:min-w-[316px] truncate mr-6">
                               {job.title}

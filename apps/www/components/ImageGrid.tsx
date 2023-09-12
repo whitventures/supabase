@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -71,7 +71,7 @@ const ImageGrid = ({
         const Container = ({ children, link }: any) => {
           if (x.link) {
             return (
-              <Link href={link}>
+              <Link legacyBehavior href={link}>
                 <div className="scale-100 transform cursor-pointer duration-100 ease-in-out hover:shadow-sm">
                   {children}
                 </div>

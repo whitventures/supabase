@@ -92,7 +92,7 @@ function Partner({
         <SectionContainer>
           <div className="col-span-12 mx-auto mb-2 max-w-5xl space-y-10 lg:col-span-2">
             {/* Back button */}
-            <Link href="/partners/integrations">
+            <Link legacyBehavior href="/partners/integrations">
               <a className="text-scale-1200 hover:text-scale-1000 flex cursor-pointer items-center transition-colors">
                 <IconChevronLeft style={{ padding: 0 }} />
                 Back
@@ -216,7 +216,10 @@ function Partner({
 
                     <div className="flex items-center justify-between py-2">
                       <span className="text-scale-900">Category</span>
-                      <Link href={`/partners/integrations#${partner.category.toLowerCase()}`}>
+                      <Link
+                        legacyBehavior
+                        href={`/partners/integrations#${partner.category.toLowerCase()}`}
+                      >
                         <a className="text-brand hover:text-brand-300 transition-colors">
                           {partner.category}
                         </a>

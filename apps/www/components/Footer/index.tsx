@@ -4,7 +4,7 @@ import DarkModeToggle from '../DarkModeToggle'
 import Link from 'next/link'
 import { useTheme } from 'common/Providers'
 import { Badge } from 'ui'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
 import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
 import { useRouter } from 'next/router'
@@ -30,7 +30,7 @@ const Footer = (props: Props) => {
       <SectionContainer>
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <Link href="#" as="/">
+            <Link legacyBehavior href="#" as="/">
               <a className="w-40">
                 <Image
                   src={
@@ -135,7 +135,9 @@ const Footer = (props: Props) => {
                             {link.url.startsWith('https') ? (
                               <Fragment>{children}</Fragment>
                             ) : (
-                              <Link href={link.url}>{children}</Link>
+                              <Link legacyBehavior href={link.url}>
+                                {children}
+                              </Link>
                             )}
                           </li>
                         )

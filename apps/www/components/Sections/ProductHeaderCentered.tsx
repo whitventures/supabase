@@ -1,7 +1,7 @@
 import { Button, IconPlayCircle } from 'ui'
 import Link from 'next/link'
 import ProductIcon from '../ProductIcon'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import styles from '~/styles/animations.module.css'
 
 interface Types {
@@ -70,7 +70,7 @@ const ProductHeaderCentered = (props: Types) => (
         </div>
         <div className="flex flex-row md:flex-row pt-8 md:items-center">
           {props.cta && (
-            <Link href={props.cta.link} as={props.cta.link}>
+            <Link legacyBehavior href={props.cta.link} as={props.cta.link}>
               <a tabIndex={-1}>
                 <Button size="medium" className="text-white">
                   {props.cta.label ?? 'Start for free'}
@@ -79,7 +79,7 @@ const ProductHeaderCentered = (props: Types) => (
             </Link>
           )}
           {props.video && (
-            <Link href={props.video} as={props.video}>
+            <Link legacyBehavior href={props.video} as={props.video}>
               <a className="ml-2">
                 <Button type="default" size="medium" icon={<IconPlayCircle />}>
                   Watch video
@@ -88,7 +88,7 @@ const ProductHeaderCentered = (props: Types) => (
             </Link>
           )}
           {props.secondaryCta && (
-            <Link href={props.secondaryCta.link} as={props.secondaryCta.link}>
+            <Link legacyBehavior href={props.secondaryCta.link} as={props.secondaryCta.link}>
               <a className="ml-2 md:ml-3">
                 <Button type="default" size="medium">
                   {props.secondaryCta.label}

@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 
 import { MDXRemote } from 'next-mdx-remote'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { IconChevronLeft } from 'ui'
 import CTABanner from '~/components/CTABanner'
@@ -126,7 +126,7 @@ function CaseStudyPage(props: any) {
               <div className="">
                 <article className="flex flex-col gap-8">
                   <div className="flex flex-col gap-8 max-w-xxl">
-                    <Link passHref href="/customers">
+                    <Link legacyBehavior passHref href="/customers">
                       <a className="text-brand hover:text-brand-600 mb-2 mt-0">Customer Stories</a>
                     </Link>
                     <h1 className="text-scale-1200 text-4xl font-semibold xl:text-5xl">
@@ -187,7 +187,7 @@ function CaseStudyPage(props: any) {
                         <div className="">
                           <p>Ready to get started?</p>
                           <div>
-                            <Link href="https://supabase.com/contact/enterprise">
+                            <Link legacyBehavior href="https://supabase.com/contact/enterprise">
                               <a className="no-underline">
                                 <Button type="default" iconRight={<IconChevronRight />}>
                                   Contact sales

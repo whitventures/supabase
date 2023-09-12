@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import {
   MotionValue,
@@ -79,7 +79,7 @@ function Product({
       initial={initial}
       animate={isInView ? animate : initial}
     >
-      <Link href={product.url}>
+      <Link legacyBehavior href={product.url}>
         <a className="flex w-full flex-col items-center text-center">
           <motion.div
             style={isMobile ? (undefined as any) : { width, willChange: 'width' }}

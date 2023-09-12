@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useWindowSize } from 'react-use'
@@ -203,7 +203,7 @@ const CommunitySlider = () => {
                   img_url={`${basePath}${card.avatar}`}
                 />
               ) : (
-                <Link href={`${basePath}${card.url}`}>
+                <Link legacyBehavior href={`${basePath}${card.url}`}>
                   <a>
                     <Card {...card} />
                   </a>

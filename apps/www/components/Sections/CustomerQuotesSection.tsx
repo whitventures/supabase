@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useTheme } from 'common/Providers'
@@ -99,7 +99,7 @@ const CustomerQuotesSection = (props: Props) => {
             className="relative mx-auto max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-4 xl:gap-8 pt-16 pb-0"
           >
             {props.customers.map((customer, i: number) => (
-              <Link href={`${basePath}${customer.url}`} key={customer.customer}>
+              <Link legacyBehavior href={`${basePath}${customer.url}`} key={customer.customer}>
                 <a className="h-full flex">
                   <Card customer={customer} index={i} />
                 </a>

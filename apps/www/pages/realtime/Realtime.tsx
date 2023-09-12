@@ -144,7 +144,7 @@ function RealtimePage() {
                 Listen to changes in the Database inserts, updates, and deletes and other changes.
               </p>
               <div className="not-prose mt-3">
-                <Link passHref href="/docs/guides/realtime/postgres-changes">
+                <Link legacyBehavior passHref href="/docs/guides/realtime/postgres-changes">
                   <a>
                     <Button type="default">View docs</Button>
                   </a>
@@ -162,7 +162,7 @@ function RealtimePage() {
               <h3>Presence</h3>
               <p>Store and synchronize online user state consistently across clients.</p>
               <div className="not-prose mt-3">
-                <Link passHref href="/docs/guides/realtime/presence">
+                <Link legacyBehavior passHref href="/docs/guides/realtime/presence">
                   <a>
                     <Button type="default">View docs</Button>
                   </a>
@@ -180,7 +180,7 @@ function RealtimePage() {
               <h3>Broadcast</h3>
               <p>Send any data to any client subscribed to the same Channel.</p>
               <div className="not-prose mt-3">
-                <Link passHref href="/docs/guides/realtime/broadcast">
+                <Link legacyBehavior passHref href="/docs/guides/realtime/broadcast">
                   <a>
                     <Button type="default">View docs</Button>
                   </a>

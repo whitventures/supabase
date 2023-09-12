@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import { NextSeo } from 'next-seo'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { Button } from 'ui'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -133,7 +133,7 @@ export default function TicketsPage({ users }: Props) {
                   winners.
                 </p>
                 <div className="mt-1">
-                  <Link href="/launch-week">
+                  <Link legacyBehavior href="/launch-week">
                     <a>
                       <Button type="outline" size="medium">
                         Go to Launch Week 8

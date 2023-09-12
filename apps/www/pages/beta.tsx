@@ -8,7 +8,7 @@ import { APP_NAME, DEFAULT_META_DESCRIPTION } from 'lib/constants'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import Layout from '~/components/Layouts/Default'
@@ -994,7 +994,7 @@ const Beta = (props: Props) => {
       <Container>
         <div className="sticky inset-0 z-50">
           <div className="flex items-center justify-between px-5 py-5 shadow-lg bg-scale-1200 dark:bg-scale-300 xl:px-20">
-            <Link href="/">
+            <Link legacyBehavior href="/">
               <a>
                 <Image src={`${basePath}/images/logo-dark.png`} height={24} width={120} />
               </a>

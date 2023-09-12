@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import { range } from 'lodash'
@@ -141,7 +141,7 @@ const Partners = () => {
                   </p>
                 </div>
 
-                <Link href="/partners/experts">
+                <Link legacyBehavior href="/partners/experts">
                   <a className="absolute inset-0" />
                 </Link>
               </InteractiveShimmerCard>
@@ -171,7 +171,7 @@ const Partners = () => {
                   <h3 className="text-scale-1200 text-lg">Integrations</h3>
                   <p className="text-scale-900 text-sm">Use your favorite tools with Supabase.</p>
                 </div>
-                <Link href="/partners/integrations">
+                <Link legacyBehavior href="/partners/integrations">
                   <a className="absolute inset-0" />
                 </Link>
               </InteractiveShimmerCard>
@@ -240,7 +240,7 @@ const Partners = () => {
               Reach out to partner with Supabase
             </h2>
             <div className="w-full mt-4 flex items-center justify-center text-center gap-4">
-              <Link href="https://forms.supabase.com/partner">
+              <Link legacyBehavior href="https://forms.supabase.com/partner">
                 <a tabIndex={-1}>
                   <Button size="medium">Become a Partner</Button>
                 </a>

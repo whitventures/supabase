@@ -15,7 +15,7 @@ const BuiltExamples = () => {
         <h3 className="h2">What can you build with Supabase?</h3>
         <p className="p">There are many example apps and starter projects to get you started.</p>
         <div className="flex justify-center gap-2 py-4">
-          <Link href="/docs/guides/examples" as="/docs/guides/examples" passHref>
+          <Link legacyBehavior href="/docs/guides/examples" as="/docs/guides/examples" passHref>
             <a>
               <Button type="default" size="small" className="h-full">
                 View all examples
@@ -23,6 +23,7 @@ const BuiltExamples = () => {
             </a>
           </Link>
           <Link
+            legacyBehavior
             href="https://github.com/supabase/supabase/tree/master/examples"
             as="https://github.com/supabase/supabase/tree/master/examples"
             passHref

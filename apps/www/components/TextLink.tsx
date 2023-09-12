@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 function TextLink({ url = '', label, ...props }: any) {
   return (
-    <Link href={url} passHref>
+    <Link legacyBehavior href={url} passHref>
       <a
         className="text-scale-1100 hover:text-scale-1200 mt-3 block cursor-pointer text-sm"
         {...props}

@@ -59,7 +59,7 @@ const LW8Meetups = ({ meetups }: { meetups?: Meetup[] }) => {
           meets
             ?.sort((a, b) => (new Date(a.start_at) > new Date(b.start_at) ? 1 : -1))
             .map(({ display_info, link, isLive, title }: Meetup) => (
-              <Link href={link ?? '#'}>
+              <Link legacyBehavior href={link ?? '#'}>
                 <a
                   target="_blank"
                   className={[

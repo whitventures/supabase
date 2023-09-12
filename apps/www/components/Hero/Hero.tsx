@@ -7,7 +7,7 @@ import { Button, IconBookOpen } from 'ui'
 import SectionContainer from '~/components/Layouts/SectionContainer'
 import HeroFrameworks from './HeroFrameworks'
 import styles from './hero.module.css'
-import Image from "next/legacy/image"
+import Image from 'next/legacy/image'
 import AnnouncementBadge from '../Announcement/Badge'
 
 const Hero = () => {
@@ -50,6 +50,7 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <Link
+                    legacyBehavior
                     href="https://supabase.com/dashboard"
                     as="https://supabase.com/dashboard"
                     passHref
@@ -63,7 +64,7 @@ const Hero = () => {
                       </Button>
                     </a>
                   </Link>
-                  <Link href="/docs" as="/docs" passHref>
+                  <Link legacyBehavior href="/docs" as="/docs" passHref>
                     <a
                       onClick={() => sendTelemetryEvent(gaEvents['www_hp_hero_documentation'])}
                       tabIndex={-1}

@@ -24,7 +24,7 @@ const ProductCard = ({
   onClick?: any
   alignLeft?: boolean
 }) => (
-  <Link href={url}>
+  <Link legacyBehavior href={url}>
     <a
       className={[
         'group relative w-full h-[400px] flex flex-col gap-5 lg:flex-row focus:outline-none focus:border-none focus:ring-brand-600 focus:ring-2 focus:rounded-xl',

@@ -31,14 +31,14 @@ function TwitterSocialProof() {
             Supported by a network of early advocates, contributors, and champions.
           </p>
           <div className="my-8 flex justify-center gap-2">
-            <Link href={'https://github.com/supabase/supabase/discussions'} passHref>
+            <Link legacyBehavior href={'https://github.com/supabase/supabase/discussions'} passHref>
               <a target="_blank" tabIndex={-1}>
                 <Button size="small" iconRight={<IconMessageCircle size={14} />} type="default">
                   GitHub discussions
                 </Button>
               </a>
             </Link>
-            <Link href={'https://discord.supabase.com/'} passHref>
+            <Link legacyBehavior href={'https://discord.supabase.com/'} passHref>
               <a target="_blank" tabIndex={-1}>
                 <Button type="default" size="small" iconRight={<IconMessageCircle size={14} />}>
                   Discord
@@ -59,7 +59,7 @@ function TwitterSocialProof() {
           )}
           {tweets.map((tweet: any, i: number) => (
             <div className="mb-4 z-0 break-inside-avoid-column" key={i}>
-              <Link href={tweet.url}>
+              <Link legacyBehavior href={tweet.url}>
                 <a target="_blank">
                   <TweetCard
                     handle={`@${tweet.handle}`}

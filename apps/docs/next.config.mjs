@@ -4,7 +4,6 @@ import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import { remarkCodeHike } from '@code-hike/mdx'
 
-import withTM from 'next-transpile-modules'
 import withYaml from 'next-plugin-yaml'
 import configureBundleAnalyzer from '@next/bundle-analyzer'
 
@@ -47,6 +46,15 @@ const nextConfig = {
   // reactStrictMode: true,
   // swcMinify: true,
   basePath: '/docs',
+  transpilePackages: [
+    'ui',
+    'common',
+    '@supabase/auth-helpers-nextjs',
+    'mermaid',
+    'mdx-mermaid',
+    'dayjs',
+    'shared-data',
+  ],
   images: {
     dangerouslyAllowSVG: true,
     domains: [
@@ -103,20 +111,7 @@ const nextConfig = {
 }
 
 const configExport = () => {
-  const plugins = [
-    withTM([
-      'ui',
-      'common',
-      '@supabase/auth-helpers-nextjs',
-      'mermaid',
-      'mdx-mermaid',
-      'dayjs',
-      'shared-data',
-    ]),
-    withMDX,
-    withYaml,
-    withBundleAnalyzer,
-  ]
+  const plugins = [withMDX, withYaml, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), nextConfig)
 }
 

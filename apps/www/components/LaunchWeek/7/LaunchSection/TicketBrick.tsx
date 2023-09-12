@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import TicketHeader from '../Ticket/TicketHeader'
 import TicketNumber from '../Ticket/TicketNumber'
 import { UserData } from '~/components/LaunchWeek/hooks/use-conf-data'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 interface Props {
   user: UserData

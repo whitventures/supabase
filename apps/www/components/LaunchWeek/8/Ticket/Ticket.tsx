@@ -3,7 +3,7 @@ import TicketProfile from './TicketProfile'
 import TicketNumber from './TicketNumber'
 import { UserData } from '~/components/LaunchWeek/hooks/use-conf-data'
 import TicketHeader from './TicketHeader'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import TicketForm from './TicketForm'
 import TicketFooter from './TicketFooter'
 

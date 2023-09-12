@@ -3,7 +3,7 @@ import { Button } from 'ui'
 import { useState } from 'react'
 // Import Swiper React components
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import { ColorSwatchIcon, MenuIcon } from '@heroicons/react/outline'
 import { Auth, ThemeSupa } from '@supabase/auth-ui-react'

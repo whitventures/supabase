@@ -5,7 +5,7 @@ import StoragePermissionsData from 'data/products/storage/permissions-examples'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import ImageCarousel from '~/components/Carousels/ImageCarousel'
 import SplitCodeBlockCarousel from '~/components/Carousels/SplitCodeBlockCarousel'

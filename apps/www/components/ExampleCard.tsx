@@ -1,6 +1,6 @@
 import { Button, Divider, IconArrowUpRight, IconGitHub, IconTriangle, Space } from 'ui'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 function ExampleCard(props: any) {
   return (

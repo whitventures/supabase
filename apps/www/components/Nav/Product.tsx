@@ -4,7 +4,7 @@ import CustomerStoriesData from 'data/CustomerStories.json'
 import { useRouter } from 'next/router'
 import ProductIcon from '../ProductIcon'
 import { Badge } from 'ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import TextLink from '../TextLink'
 

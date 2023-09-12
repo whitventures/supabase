@@ -4,7 +4,7 @@ import ApiExamples from 'data/products/auth/auth-api-examples'
 import AuthSqlRulesExamples from 'data/products/auth/auth-sql-rules-examples'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import AuthWidgetSection from '~/components/AuthWidget/AuthWidgetSection'

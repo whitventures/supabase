@@ -2,7 +2,7 @@ import React from 'react'
 import SectionContainer from '../../Layouts/SectionContainer'
 import { SmallCard } from '../8/Releases/components'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 const LW8CalloutsSection = () => {
   return (

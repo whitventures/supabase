@@ -5,7 +5,7 @@ import SectionContainer from '~/components/Layouts/SectionContainer'
 import { Button, IconArrowUpRight } from 'ui'
 import CodeBlock from '~/components/CodeBlock/CodeBlock'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 interface TabProps {
   label: string

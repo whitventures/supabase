@@ -2,7 +2,7 @@ import React from 'react'
 import { links } from 'data/Developers'
 import AnnouncementsData from 'data/Announcements.json'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import { TextLink } from 'ui'
 

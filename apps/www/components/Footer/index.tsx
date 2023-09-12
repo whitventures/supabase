@@ -4,7 +4,7 @@ import DarkModeToggle from '../DarkModeToggle'
 import Link from 'next/link'
 import { useTheme } from 'common/Providers'
 import { Badge } from 'ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
 import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
 import { useRouter } from 'next/router'

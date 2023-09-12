@@ -3,7 +3,7 @@ import cn from 'classnames'
 import TicketForm from './TicketForm'
 // import IconAvatar from '~/components/LaunchWeek/Ticket/icons/icon-avatar'
 import styles from './ticket-profile.module.css'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 type TicketGenerationState = 'default' | 'loading'
 type Props = {

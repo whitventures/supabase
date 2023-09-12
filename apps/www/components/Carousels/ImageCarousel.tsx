@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/swiper.min.css'
 
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import TextLink from '../TextLink'
 import ImageCarouselStyles from './ImageCarousel.module.css'
 import { useInView } from 'framer-motion'

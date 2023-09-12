@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import { useBreakpoint } from 'common/hooks/useBreakpoint'
 import { UserData } from '../hooks/use-conf-data'

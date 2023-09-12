@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 
 import { MDXRemote } from 'next-mdx-remote'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Link from 'next/link'
 import { IconChevronLeft } from 'ui'
 import CTABanner from '~/components/CTABanner'

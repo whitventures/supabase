@@ -8,7 +8,7 @@ import { APP_NAME, DEFAULT_META_DESCRIPTION } from 'lib/constants'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import Layout from '~/components/Layouts/Default'

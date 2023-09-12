@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Telemetry from '~/lib/telemetry'
 import gaEvents from '~/lib/gaEvents'
 import { IconCheck } from 'ui'

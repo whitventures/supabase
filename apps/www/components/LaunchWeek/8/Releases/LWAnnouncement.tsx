@@ -1,7 +1,7 @@
 import React from 'react'
 import { SmallCard } from './components'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 // import days from './lw8_data'
 // import { ExpandableVideo } from 'ui'
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { useTheme } from 'common/Providers'
 import { LazyMotion, domAnimation, m, useInView } from 'framer-motion'
 import { INITIAL_BOTTOM, getAnimation } from '~/lib/animations'

@@ -5,7 +5,7 @@ import DefaultLayout from '~/components/Layouts/Default'
 import SectionContainer from '~/components/Layouts/SectionContainer'
 import maintainers from '~/data/maintainers.json'
 import Sponsors from '~/components/Sponsors'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { NextSeo } from 'next-seo'
 
 const OpenSource = () => {

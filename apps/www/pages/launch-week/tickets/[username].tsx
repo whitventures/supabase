@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Error from 'next/error'
 import dynamic from 'next/dynamic'
 import { Session, SupabaseClient, createClient } from '@supabase/supabase-js'

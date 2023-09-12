@@ -5,7 +5,7 @@ import Tilt from 'vanilla-tilt'
 import useConfData from '~/components/LaunchWeek/hooks/use-conf-data'
 import TicketHeader from './TicketHeader'
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 type TicketGenerationState = 'default' | 'loading'
 type Props = {

@@ -2,7 +2,7 @@ import { Badge, IconCode, IconFastForward, IconGlobe, IconRefreshCcw } from 'ui'
 import UseCaseExamples from 'data/products/functions/usecase-examples'
 import Solutions from 'data/Solutions'
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import 'swiper/swiper.min.css'

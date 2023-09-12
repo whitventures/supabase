@@ -1,7 +1,7 @@
 import { Button, IconPlayCircle } from 'ui'
 import Link from 'next/link'
 import ProductIcon from '../ProductIcon'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import styles from '~/styles/animations.module.css'
 
 interface Types {

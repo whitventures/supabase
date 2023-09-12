@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import { NextSeo } from 'next-seo'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 import _days from '~/components/LaunchWeek/6/lw6_days.json'
 import DefaultLayout from '~/components/Layouts/Default'

@@ -3,9 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// this is required to use shared packages in the packages directory
-const withTM = require('next-transpile-modules')(['ui', 'common', 'shared-data'])
-
 // Required for nextjs standalone build
 const path = require('path')
 
@@ -30,6 +27,7 @@ const csp = [
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   output: 'standalone',
+  transpilePackages: ['ui', 'common', 'shared-data'],
   async redirects() {
     return [
       {
@@ -242,7 +240,7 @@ const nextConfig = {
 }
 
 // Export all config
-const moduleExports = withTM(withBundleAnalyzer(nextConfig))
+const moduleExports = withBundleAnalyzer(nextConfig)
 
 const sentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -262,4 +260,4 @@ const sentryWebpackPluginOptions = {
 module.exports =
   process.env.NEXT_PUBLIC_IS_PLATFORM === 'true'
     ? withSentryConfig(moduleExports, sentryWebpackPluginOptions)
-    : withTM(nextConfig)
+    : nextConfig

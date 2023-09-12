@@ -8,11 +8,13 @@
     "@headlessui/react": "^1.7.14",
     "@supabase/gotrue-js": "^2.48.0",
     "@supabase/ui": "^0.37.0-alpha.50",
-    "@types/react": "^17.0.39",
+    "@types/react": "^18.2.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-use": "^17.4.0"
   },
   "devDependencies": {
-    "@types/react-dom": "^17.0.11",
+    "@types/react-dom": "^18.2.7",
     "config": "*",
     "tsconfig": "*",
     "typescript": "^5.0.4"

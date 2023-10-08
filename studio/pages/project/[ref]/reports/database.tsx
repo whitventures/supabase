@@ -2,11 +2,10 @@ import dayjs from 'dayjs'
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 
-import { useParams } from 'common/hooks'
-import { TIME_PERIODS_INFRA, USAGE_APPROACHING_THRESHOLD } from 'lib/constants'
+import { TIME_PERIODS_INFRA } from 'lib/constants'
 import { formatBytes } from 'lib/helpers'
 import { NextPageWithLayout } from 'types'
-import { Badge, Button, IconArrowRight, IconExternalLink } from 'ui'
+import { AlertDescription_Shadcn_, Alert_Shadcn_, IconArrowRight, Loading } from 'ui'
 
 import { ReportsLayout } from 'components/layouts'
 import { useProjectContext } from 'components/layouts/ProjectLayout/ProjectContext'
@@ -15,10 +14,7 @@ import DateRangePicker from 'components/to-be-cleaned/DateRangePicker'
 import Panel from 'components/ui/Panel'
 import SparkBar from 'components/ui/SparkBar'
 import { useDatabaseSizeQuery } from 'data/database/database-size-query'
-import { useProjectSubscriptionV2Query } from 'data/subscriptions/project-subscription-v2-query'
-import { useProjectUsageQuery } from 'data/usage/project-usage-query'
-import { useSelectedOrganization } from 'hooks'
-import Link from 'next/link'
+import { useDatabaseLargestObjectsQuery } from 'data/database/database-largest-objects-query'
 
 const DatabaseReport: NextPageWithLayout = () => {
   return (
@@ -37,172 +33,24 @@ DatabaseReport.getLayout = (page) => <ReportsLayout title="Database">{page}</Rep
 export default DatabaseReport
 
 const DatabaseUsage = observer(() => {
-  const { ref: projectRef } = useParams()
   const { project } = useProjectContext()
-  const selectedOrganization = useSelectedOrganization()
-  const { data: usage } = useProjectUsageQuery({ projectRef })
-  const { data: subscription } = useProjectSubscriptionV2Query({ projectRef })
 
   const [dateRange, setDateRange] = useState<any>(undefined)
-
-  const databaseUsageLimit = usage?.db_size?.limit ?? 0
-  const databaseEgressLimit = usage?.db_egress?.limit ?? 0
 
   const { data } = useDatabaseSizeQuery({
     projectRef: project?.ref,
     connectionString: project?.connectionString,
   })
-  const databaseSize = data?.result[0].db_size ?? 0
-
-  const databaseSizeUsageRatio = databaseSize / databaseUsageLimit
-  const limitIsApproaching = databaseSizeUsageRatio >= USAGE_APPROACHING_THRESHOLD
-  const limitIsExceeded = databaseSizeUsageRatio >= 1
-
-  const diskSize = usage?.disk_volume_size_gb ?? 0
-  const diskSizeUsageRatio = databaseSize / diskSize
-
-  const egressIsApproaching = databaseSizeUsageRatio >= USAGE_APPROACHING_THRESHOLD
-  const egressIsExceeded = databaseSizeUsageRatio >= 1
-
-  const subscriptionPlan = subscription?.plan?.id
-
-  const isPaidTier = subscriptionPlan !== 'free'
-
-  // Can be null or undefined, thus !=
-  const orgLevelBilling = selectedOrganization?.subscription_id != undefined
+  const { data: largestObjects, isSuccess: loadedLargestObjects } = useDatabaseLargestObjectsQuery({
+    projectRef: project?.ref,
+    connectionString: project?.connectionString,
+  })
+  const databaseSizeBytes = data?.result[0].db_size ?? 0
 
   return (
     <>
       <div>
         <section>
-          <Panel title={<h2>Database usage</h2>}>
-            {orgLevelBilling ? (
-              <Panel.Content>
-                <div className="space-y-1">
-                  <h5 className="text-sm text-foreground">Disk Usage</h5>
-                  <SparkBar
-                    type="horizontal"
-                    value={databaseSize}
-                    max={
-                      usage?.disk_volume_size_gb ?? 0 > 0
-                        ? usage?.disk_volume_size_gb ?? 0
-                        : Infinity
-                    }
-                    barClass={`${
-                      diskSizeUsageRatio >= 0.9 && !isPaidTier
-                        ? 'bg-red-900'
-                        : diskSizeUsageRatio >= 0.9
-                        ? 'bg-yellow-900'
-                        : 'bg-brand'
-                    }`}
-                    bgClass="bg-gray-300 dark:bg-gray-600"
-                    labelBottom={formatBytes(databaseSize)}
-                    labelTop={usage?.disk_volume_size_gb ? usage?.disk_volume_size_gb + 'GB' : '-'}
-                  />
-                </div>
-
-                {isPaidTier && (
-                  <div className="flex justify-between items-center mt-3">
-                    <div className="flex flex-row space-x-3 text-foreground-light text-sm">
-                      <Badge>Auto-Scaling</Badge>
-                    </div>
-
-                    <Button type="default" icon={<IconExternalLink size={14} strokeWidth={1.5} />}>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://supabase.com/docs/guides/platform/database-usage"
-                      >
-                        What is disk size?
-                      </a>
-                    </Button>
-                  </div>
-                )}
-              </Panel.Content>
-            ) : (
-              <Panel.Content>
-                <div className="space-y-1">
-                  <h5 className="text-sm text-foreground">Database size</h5>
-                  <SparkBar
-                    type="horizontal"
-                    value={databaseSize}
-                    max={databaseUsageLimit > 0 ? databaseUsageLimit : Infinity}
-                    barClass={`${
-                      limitIsExceeded
-                        ? 'bg-red-900'
-                        : limitIsApproaching
-                        ? 'bg-yellow-900'
-                        : 'bg-brand'
-                    }`}
-                    bgClass="bg-gray-300 dark:bg-gray-600"
-                    labelBottom={formatBytes(databaseSize)}
-                    labelTop={databaseUsageLimit > 0 ? formatBytes(databaseUsageLimit) : ''}
-                  />
-                </div>
-
-                {isPaidTier && (
-                  <div className="flex justify-between items-center mt-3">
-                    <div className="flex flex-row space-x-3 text-foreground-light text-sm">
-                      {usage?.disk_volume_size_gb && (
-                        <span>Disk Size: {usage.disk_volume_size_gb} GB</span>
-                      )}
-                      <Badge>Auto-Scaling</Badge>
-                    </div>
-
-                    <Button type="default" icon={<IconExternalLink size={14} strokeWidth={1.5} />}>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://supabase.com/docs/guides/platform/database-usage"
-                      >
-                        What is disk size?
-                      </a>
-                    </Button>
-                  </div>
-                )}
-              </Panel.Content>
-            )}
-
-            {!orgLevelBilling && (
-              <Panel.Content>
-                <div className="space-y-1">
-                  <h5 className="text-sm text-foreground">Database egress</h5>
-                  <SparkBar
-                    type="horizontal"
-                    value={usage?.db_egress?.usage ?? 0}
-                    max={databaseEgressLimit > 0 ? databaseEgressLimit : Infinity}
-                    barClass={`${
-                      egressIsExceeded
-                        ? 'bg-red-900'
-                        : egressIsApproaching
-                        ? 'bg-yellow-900'
-                        : 'bg-brand'
-                    }`}
-                    bgClass="bg-gray-300 dark:bg-gray-600"
-                    labelBottom={formatBytes(usage?.db_egress?.usage ?? 0)}
-                    labelTop={databaseEgressLimit > 0 ? formatBytes(databaseEgressLimit) : ''}
-                  />
-                </div>
-              </Panel.Content>
-            )}
-
-            {orgLevelBilling && (
-              <Panel.Content>
-                <p className="text-sm text-foreground">
-                  Head to your{' '}
-                  <Link href={`/org/${selectedOrganization?.slug}/usage`}>
-                    <a>
-                      <span className="text-green-900 transition hover:text-green-1000">
-                        organizations usage page
-                      </span>
-                    </a>
-                  </Link>
-                  , to see a breakdown of your entire usage.
-                </p>
-              </Panel.Content>
-            )}
-          </Panel>
-
           <Panel title={<h2>Database health</h2>}>
             <Panel.Content>
               <div className="mb-4 flex items-center space-x-3">
@@ -282,6 +130,55 @@ const DatabaseUsage = observer(() => {
                     provider={'infra-monitoring'}
                   />
                 )}
+              </div>
+            </Panel.Content>
+          </Panel>
+
+          <Panel
+            title={
+              <div className="flex justify-between w-full">
+                <h2>Database size</h2>
+                <span className="text-lg tracking-wide">{formatBytes(databaseSizeBytes)}</span>
+              </div>
+            }
+          >
+            <Panel.Content>
+              <div className="space-y-1">
+                <span className="text-md">Largest Objects</span>
+
+                <Loading active={!loadedLargestObjects}>
+                  <div className="space-y-3 mt-4">
+                    {largestObjects?.result?.map((object) => (
+                      <div key={`${object.schema_name}.${object.relname}`}>
+                        <SparkBar
+                          type="horizontal"
+                          value={object.table_size}
+                          max={databaseSizeBytes}
+                          barClass={`bg-brand`}
+                          bgClass="bg-gray-300 dark:bg-gray-600"
+                          labelBottom={`${object.schema_name}.${object.relname}`}
+                          labelTop={formatBytes(object.table_size)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <Alert_Shadcn_ variant="default" className="mt-4">
+                    <AlertDescription_Shadcn_>
+                      Please see our{' '}
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-brand"
+                        href="https://supabase.com/docs/guides/platform/database-size#database-space-management"
+                      >
+                        docs
+                      </a>{' '}
+                      for further information about database space and how to further reduce
+                      database space.
+                    </AlertDescription_Shadcn_>
+                  </Alert_Shadcn_>
+                </Loading>
               </div>
             </Panel.Content>
           </Panel>

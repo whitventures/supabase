@@ -1,4 +1,5 @@
 import { Children } from 'react'
+import { cn } from 'ui'
 
 const FormSection = ({
   children,
@@ -77,11 +78,11 @@ const FormSectionContent = ({
 }) => {
   return (
     <div
-      className={`
-        relative col-span-12 flex flex-col gap-6 lg:col-span-7
-        ${fullWidth && '!col-span-12'}
-        ${className}
-      `}
+      className={cn(
+        'relative col-span-12 flex flex-col gap-6 lg:col-span-7',
+        fullWidth && '!col-span-12',
+        className
+      )}
     >
       {loading ? Children.map(children, (child) => <Shimmer />) : children}
     </div>

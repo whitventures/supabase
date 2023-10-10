@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { cn } from '@ui/lib/utils'
+import React from 'react'
 // @ts-ignore
 import defaultTheme from '../../theme/defaultTheme'
 // @ts-ignore
@@ -134,7 +135,7 @@ export function FormLayout({
   )
 
   return (
-    <div className={containerClasses.join(' ')}>
+    <div className={cn(containerClasses)}>
       {flex && <div className={__styles.flex[align].content}>{children}</div>}
       {labelled || labelOptional || layout === 'horizontal' ? (
         <div

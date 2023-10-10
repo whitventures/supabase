@@ -4,6 +4,7 @@ import { StorageLayout } from 'components/layouts'
 import { NextPageWithLayout } from 'types'
 
 const Storage: NextPageWithLayout = () => {
+  console.log('ello sto ')
   return <>{/* <h1>Use this as a template for storage pages</h1> */}</>
 }
 

@@ -166,12 +166,11 @@ const LogTable = ({
     }
   }, [stringData])
 
-  const RowRenderer = useCallback(
-    (props: RowRendererProps<any>) => (
-      <Row {...props} isRowSelected={false} selectedCellIdx={undefined} />
-    ),
-    []
-  )
+  const RowRenderer = useCallback((props: RowRendererProps<any>) => {
+    console.log(props)
+    // return <div {...props} isRowSelected={false} selectedCellIdx={undefined}></div>
+    return <Row {...props} isRowSelected={false} selectedCellIdx={undefined} />
+  }, [])
 
   const copyResultsToClipboard = () => {
     copyToClipboard(stringData, () => {

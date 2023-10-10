@@ -94,8 +94,8 @@ const TableList = ({
         <h3 className="mb-1 text-xl text-foreground">Database Tables</h3>
       </div>
 
-      <div className="flex items-center justify-between">
-        <div className="flex items-center space-x-4">
+      <div className="">
+        <div className="">
           <div className="w-[260px]">
             {isLoadingSchemas && <ShimmeringLoader className="!py-4" />}
             {isSuccessSchemas && (

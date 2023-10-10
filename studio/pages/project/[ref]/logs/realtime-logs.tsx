@@ -1,8 +1,8 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import { observer } from 'mobx-react-lite'
-import { LogsLayout } from 'components/layouts'
+import { LogsTableName } from 'components/interfaces/Settings/Logs'
 import LogsPreviewer from 'components/interfaces/Settings/Logs/LogsPreviewer'
+import { LogsLayout } from 'components/layouts'
+import { observer } from 'mobx-react-lite'
+import { useRouter } from 'next/router'
 import { NextPageWithLayout } from 'types'
 
 export const LogPage: NextPageWithLayout = () => {
@@ -13,8 +13,7 @@ export const LogPage: NextPageWithLayout = () => {
     <LogsPreviewer
       projectRef={ref as string}
       condensedLayout={true}
-      // @ts-ignore
-      tableName={'realtime_logs'}
+      tableName={LogsTableName.REALTIME}
       queryType={'realtime'}
     />
   )

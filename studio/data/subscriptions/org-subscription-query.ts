@@ -62,6 +62,8 @@ export type OrgSubscription = {
     expiry_year: number
   }
   project_addons: ProjectAddon[]
+  billing_via_partner: boolean
+  billing_partner?: 'fly'
 }
 
 export async function getOrgSubscription(

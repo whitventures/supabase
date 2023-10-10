@@ -7,8 +7,18 @@ import PaymentMethods from './PaymentMethods/PaymentMethods'
 import Subscription from './Subscription/Subscription'
 import TaxID from './TaxID/TaxID'
 import BillingBreakdown from './BillingBreakdown/BillingBreakdown'
+import { useOrganizationCustomerProfileQuery } from 'data/organizations/organization-customer-profile-query'
+import { useParams } from 'common'
 
 const BillingSettings = () => {
+  const { slug } = useParams()
+
+  const { data, error, isLoading, isError, isSuccess } = useOrganizationCustomerProfileQuery({
+    slug,
+  })
+
+  const billedViaPartner = data?.billed_via_partner === true
+
   return (
     <>
       <ScaffoldContainer id="subscription">
@@ -27,35 +37,39 @@ const BillingSettings = () => {
         <BillingBreakdown />
       </ScaffoldContainer>
 
-      <ScaffoldDivider />
+      {!billedViaPartner && (
+        <>
+          <ScaffoldDivider />
 
-      <ScaffoldContainer id="credits-balance">
-        <CreditBalance />
-      </ScaffoldContainer>
+          <ScaffoldContainer id="credits-balance">
+            <CreditBalance />
+          </ScaffoldContainer>
 
-      <ScaffoldDivider />
+          <ScaffoldDivider />
 
-      <ScaffoldContainer id="payment-methods">
-        <PaymentMethods />
-      </ScaffoldContainer>
+          <ScaffoldContainer id="payment-methods">
+            <PaymentMethods />
+          </ScaffoldContainer>
 
-      <ScaffoldDivider />
+          <ScaffoldDivider />
 
-      <ScaffoldContainer id="email">
-        <BillingEmail />
-      </ScaffoldContainer>
+          <ScaffoldContainer id="email">
+            <BillingEmail />
+          </ScaffoldContainer>
 
-      <ScaffoldDivider />
+          <ScaffoldDivider />
 
-      <ScaffoldContainer id="address">
-        <BillingAddress />
-      </ScaffoldContainer>
+          <ScaffoldContainer id="address">
+            <BillingAddress />
+          </ScaffoldContainer>
 
-      <ScaffoldDivider />
+          <ScaffoldDivider />
 
-      <ScaffoldContainer id="taxId">
-        <TaxID />
-      </ScaffoldContainer>
+          <ScaffoldContainer id="taxId">
+            <TaxID />
+          </ScaffoldContainer>
+        </>
+      )}
     </>
   )
 }

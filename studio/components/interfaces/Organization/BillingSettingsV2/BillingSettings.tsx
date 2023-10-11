@@ -17,7 +17,7 @@ const BillingSettings = () => {
     slug,
   })
 
-  const billedViaPartner = data?.billed_via_partner === true
+  const billingViaPartner = data?.billed_via_partner === true
 
   return (
     <>
@@ -37,7 +37,7 @@ const BillingSettings = () => {
         <BillingBreakdown />
       </ScaffoldContainer>
 
-      {!billedViaPartner && (
+      {!billingViaPartner && (
         <>
           <ScaffoldDivider />
 

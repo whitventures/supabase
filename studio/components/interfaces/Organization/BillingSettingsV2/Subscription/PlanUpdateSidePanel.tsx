@@ -73,7 +73,7 @@ const PlanUpdateSidePanel = () => {
     }
   )
 
-  const billedViaPartner = subscription?.billing_via_partner === true
+  const billingViaPartner = subscription?.billing_via_partner === true
 
   const {
     data: subscriptionPreview,
@@ -117,7 +117,7 @@ const PlanUpdateSidePanel = () => {
   const onUpdateSubscription = async () => {
     if (!slug) return console.error('org slug is required')
     if (!selectedTier) return console.error('Selected plan is required')
-    if (!selectedPaymentMethod && !billedViaPartner) {
+    if (!selectedPaymentMethod && !billingViaPartner) {
       return ui.setNotification({ category: 'error', message: 'Please select a payment method' })
     }
 
@@ -394,7 +394,7 @@ const PlanUpdateSidePanel = () => {
         </Modal.Content>
 
         <Modal.Content>
-          {!billedViaPartner ? (
+          {!billingViaPartner ? (
             <div className="py-4 space-y-2">
               <p className="text-sm">
                 Upon clicking confirm, your monthly invoice will be adjusted and your credit card

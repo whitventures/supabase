@@ -12,13 +12,13 @@ import { useProjectContext } from 'components/layouts/ProjectLayout/ProjectConte
 import ChartHandler from 'components/to-be-cleaned/Charts/ChartHandler'
 import DateRangePicker from 'components/to-be-cleaned/DateRangePicker'
 import Panel from 'components/ui/Panel'
-import SparkBar from 'components/ui/SparkBar'
 import { useDatabaseSizeQuery } from 'data/database/database-size-query'
 import ReportWidget from 'components/interfaces/Reports/ReportWidget'
 import { useParams } from 'common'
 import { queriesFactory } from 'components/interfaces/Reports/Reports.utils'
 import { PRESET_CONFIG } from 'components/interfaces/Reports/Reports.constants'
 import { BaseReportParams } from 'components/interfaces/Reports/Reports.types'
+import Table from 'components/to-be-cleaned/Table'
 
 const DatabaseReport: NextPageWithLayout = () => {
   return (
@@ -152,29 +152,34 @@ const DatabaseUsage = observer(() => {
                     <span>Could not find any large objects</span>
                   )}
                   {!props.isLoading && props.data.length > 0 && (
-                    <div className="space-y-3 mt-4">
-                      {props.data?.map((object) => {
+                    <Table
+                      className="space-y-3 mt-4"
+                      head={[
+                        <Table.th key="object" className="py-2">
+                          Object
+                        </Table.th>,
+                        <Table.th key="size" className="py-2">
+                          Size
+                        </Table.th>,
+                      ]}
+                      body={props.data?.map((object) => {
                         const percentage = (
                           ((object.table_size as number) / databaseSizeBytes) *
                           100
                         ).toFixed(2)
 
                         return (
-                          <div key={`${object.schema_name}.${object.relname}`}>
-                            <SparkBar
-                              type="horizontal"
-                              value={object.table_size}
-                              max={databaseSizeBytes}
-                              barClass={`bg-brand`}
-                              bgClass="bg-gray-300 dark:bg-gray-600"
-                              labelBottom={`${object.schema_name}.${object.relname} - ${formatBytes(
-                                object.table_size
-                              )} (${percentage}%)`}
-                            />
-                          </div>
+                          <Table.tr key={`${object.schema_name}.${object.relname}`}>
+                            <Table.td>
+                              {object.schema_name}.{object.relname}
+                            </Table.td>
+                            <Table.td>
+                              {formatBytes(object.table_size)} ({percentage}%)
+                            </Table.td>
+                          </Table.tr>
                         )
                       })}
-                    </div>
+                    />
                   )}
                 </div>
               )

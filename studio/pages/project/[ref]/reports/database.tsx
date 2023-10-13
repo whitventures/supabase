@@ -17,17 +17,8 @@ import { useDatabaseSizeQuery } from 'data/database/database-size-query'
 import ReportWidget from 'components/interfaces/Reports/ReportWidget'
 import { useParams } from 'common'
 import { queriesFactory } from 'components/interfaces/Reports/Reports.utils'
-import {
-  PRESET_CONFIG,
-  REPORTS_DATEPICKER_HELPERS,
-} from 'components/interfaces/Reports/Reports.constants'
+import { PRESET_CONFIG } from 'components/interfaces/Reports/Reports.constants'
 import { BaseReportParams } from 'components/interfaces/Reports/Reports.types'
-import ReportPadding from 'components/interfaces/Reports/ReportPadding'
-import ReportHeader from 'components/interfaces/Reports/ReportHeader'
-import ReportFilterBar from 'components/interfaces/Reports/ReportFilterBar'
-import ShimmerLine from 'components/ui/ShimmerLine'
-import { DatePickerToFrom } from 'components/interfaces/Settings/Logs'
-import DatePickers from 'components/interfaces/Settings/Logs/Logs.DatePickers'
 
 const DatabaseReport: NextPageWithLayout = () => {
   return (
@@ -58,35 +49,34 @@ const DatabaseUsage = observer(() => {
 
   const report = useDatabaseReport()
 
-  const handleDatepickerChange = ({ from, to }: DatePickerToFrom) => {
-    report.mergeParams({
-      iso_timestamp_start: from || '',
-      iso_timestamp_end: to || '',
-    })
-  }
-
   return (
-    <ReportPadding>
-      <ReportHeader title="Database" isLoading={report.isLoading} onRefresh={report.refresh} />
-      <div className="w-full flex flex-col gap-1">
-        <div>
-          <div className="flex flex-row justify-start items-center flex-wrap gap-2">
-            <DatePickers
-              onChange={handleDatepickerChange}
-              from={report.params.largestObjects.iso_timestamp_start!}
-              to={report.params.largestObjects.iso_timestamp_end!}
-              helpers={REPORTS_DATEPICKER_HELPERS}
-            />
-          </div>
-        </div>
-        <div className="h-2 w-full">
-          <ShimmerLine active={report.isLoading} />
-        </div>
-      </div>
+    <>
       <div>
         <section>
           <Panel title={<h2>Database health</h2>}>
             <Panel.Content>
+              <div className="mb-4 flex items-center space-x-3">
+                <DateRangePicker
+                  loading={false}
+                  value={'7d'}
+                  options={TIME_PERIODS_INFRA}
+                  currentBillingPeriodStart={undefined}
+                  onChange={setDateRange}
+                />
+                {dateRange && (
+                  <div className="flex items-center space-x-2">
+                    <p className="text-foreground-light">
+                      {dayjs(dateRange.period_start.date).format('MMMM D, hh:mma')}
+                    </p>
+                    <p className="text-foreground-light">
+                      <IconArrowRight size={12} />
+                    </p>
+                    <p className="text-foreground-light">
+                      {dayjs(dateRange.period_end.date).format('MMMM D, hh:mma')}
+                    </p>
+                  </div>
+                )}
+              </div>
               <div className="space-y-6">
                 {dateRange && (
                   <ChartHandler
@@ -210,8 +200,7 @@ const DatabaseUsage = observer(() => {
                       >
                         docs
                       </a>{' '}
-                      for further information about database space and how to further reduce
-                      database space.
+                      for further information about database space and how to reduce database space.
                     </p>
                   </AlertDescription_Shadcn_>
                 </Alert_Shadcn_>
@@ -220,7 +209,7 @@ const DatabaseUsage = observer(() => {
           />
         </section>
       </div>
-    </ReportPadding>
+    </>
   )
 })
 

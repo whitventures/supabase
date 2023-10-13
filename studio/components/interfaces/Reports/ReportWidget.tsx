@@ -83,13 +83,14 @@ const ReportWidget: React.FC<ReportWidgetProps> = (props) => {
                         ? `/project/${projectRef}/sql/new`
                         : `/project/${projectRef}/logs/explorer`
 
-                    const query: Record<string, string | undefined> = {
-                      q: props.params?.sql,
-                    }
+                    const query: Record<string, string | undefined> = {}
 
                     if (props.queryType !== 'db') {
+                      query.q = props.params?.sql
                       query.its = props.params!.iso_timestamp_start
                       query.ite = props.params!.iso_timestamp_end
+                    } else {
+                      query.content = props.params?.sql
                     }
 
                     router.push({

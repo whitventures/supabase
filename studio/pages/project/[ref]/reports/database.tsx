@@ -138,9 +138,9 @@ const DatabaseUsage = observer(() => {
 
           <ReportWidget
             isLoading={report.isLoading}
-            params={report.params.largestObjects}
-            title="Database Size - Largest Objects"
-            data={report.data.largestObjects || []}
+            params={report.params.largeObjects}
+            title="Database Size - Large Objects"
+            data={report.data.largeObjects || []}
             queryType={'db'}
             renderer={(props) => {
               return (
@@ -225,8 +225,8 @@ const useDatabaseReport = () => {
     PRESET_CONFIG.database.queries,
     projectRef ?? 'default'
   )
-  const largestObjects = queryHooks.largestObjects()
-  const activeHooks = [largestObjects]
+  const largeObjects = queryHooks.largeObjects()
+  const activeHooks = [largeObjects]
 
   const handleRefresh = async () => {
     activeHooks.forEach((hook) => hook.runQuery())
@@ -237,8 +237,8 @@ const useDatabaseReport = () => {
     })
   }
   useEffect(() => {
-    if (largestObjects.changeQuery) {
-      largestObjects.changeQuery(PRESET_CONFIG.storage.queries.largestObjects.sql([]))
+    if (largeObjects.changeQuery) {
+      largeObjects.changeQuery(PRESET_CONFIG.storage.queries.largeObjects.sql([]))
     }
   }, [])
 
@@ -246,13 +246,13 @@ const useDatabaseReport = () => {
 
   return {
     data: {
-      largestObjects: largestObjects.data,
+      largeObjects: largeObjects.data,
     },
     errors: {
-      largestObjects: largestObjects.error,
+      largeObjects: largeObjects.error,
     },
     params: {
-      largestObjects: largestObjects.params,
+      largeObjects: largeObjects.params,
     },
     mergeParams: handleSetParams,
     isLoading,

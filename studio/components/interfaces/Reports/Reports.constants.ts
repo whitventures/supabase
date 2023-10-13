@@ -361,7 +361,7 @@ select
   [Presets.DATABASE]: {
     title: 'database',
     queries: {
-      largestObjects: {
+      largeObjects: {
         queryType: 'db',
         sql: (_) => `SELECT 
         SCHEMA_NAME,

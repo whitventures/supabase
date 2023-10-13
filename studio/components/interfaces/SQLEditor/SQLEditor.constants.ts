@@ -1278,7 +1278,7 @@ create extension "supabase-dbdev";
     id: 25,
     type: 'template',
     title: 'Large objects',
-    description: 'Shows a list of the largest objects (tables/indexes) in your database.',
+    description: 'Shows a list of large objects (tables/indexes) in your database.',
     sql: `SELECT 
     SCHEMA_NAME,
     relname,

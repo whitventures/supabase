@@ -3,7 +3,7 @@ import Panel from 'components/ui/Panel'
 import { NextRouter, useRouter } from 'next/router'
 import { Button, IconExternalLink, IconHelpCircle, Loading } from 'ui'
 import { LogsEndpointParams } from '../Settings/Logs'
-import { BaseReportParams } from './Reports.types'
+import { BaseReportParams, ReportQueryType } from './Reports.types'
 
 export interface ReportWidgetProps<T = any> {
   data: T[]
@@ -17,6 +17,7 @@ export interface ReportWidgetProps<T = any> {
   appendProps?: Partial<ReportWidgetRendererProps>
   // omitting params will hide the "View in logs explorer" button
   params?: BaseReportParams | LogsEndpointParams
+  queryType?: ReportQueryType
   isLoading: boolean
 }
 
@@ -77,13 +78,23 @@ const ReportWidget: React.FC<ReportWidgetProps> = (props) => {
                   icon={<IconExternalLink strokeWidth={1.5} />}
                   className="px-1"
                   onClick={() => {
+                    const pathname =
+                      props.queryType === 'db'
+                        ? `/project/${projectRef}/sql/new`
+                        : `/project/${projectRef}/logs/explorer`
+
+                    const query: Record<string, string | undefined> = {
+                      q: props.params?.sql,
+                    }
+
+                    if (props.queryType !== 'db') {
+                      query.its = props.params!.iso_timestamp_start
+                      query.ite = props.params!.iso_timestamp_end
+                    }
+
                     router.push({
-                      pathname: `/project/${projectRef}/logs/explorer`,
-                      query: {
-                        q: props.params?.sql,
-                        its: props.params!.iso_timestamp_start,
-                        ite: props.params!.iso_timestamp_end,
-                      },
+                      pathname,
+                      query,
                     })
                   }}
                 />
@@ -97,7 +108,9 @@ const ReportWidget: React.FC<ReportWidgetProps> = (props) => {
                       'border border-scale-200',
                     ].join(' ')}
                   >
-                    <span className="text-xs text-foreground">Open in Logs Explorer</span>
+                    <span className="text-xs text-foreground">
+                      {props.queryType === 'db' ? 'Open in SQL Editor' : 'Open in Logs Explorer'}
+                    </span>
                   </div>
                 </Tooltip.Content>
               </Tooltip.Portal>

@@ -27,6 +27,8 @@ const useDbQuery = (
 
   const resolvedSql = typeof sql === 'function' ? sql([]) : sql
 
+  params.sql = resolvedSql
+
   const {
     data,
     error: rqError,

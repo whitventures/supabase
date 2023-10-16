@@ -53,6 +53,7 @@ const OrganizationLayout = ({ children }: PropsWithChildren<{}>) => {
               <Tabs.Panel id="invoices" label="Invoices" className="!my-0" />
               {showOAuthApps && <Tabs.Panel id="apps" label="OAuth Apps" className="!my-0" />}
               {showAuditLogs && <Tabs.Panel id="audit" label="Audit Logs" className="!my-0" />}
+              {isOrgBilling && <Tabs.Panel id="docs" label="Documents" className="!my-0" />}
             </Tabs>
           </nav>
         </ScaffoldContainer>

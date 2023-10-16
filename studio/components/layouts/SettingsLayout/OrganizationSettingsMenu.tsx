@@ -15,6 +15,7 @@ const OrganizationSettingsMenu = () => {
     { label: 'Invoices', pathname: `/org/[slug]/invoices` },
     { label: 'OAuth Apps', pathname: `/org/[slug]/apps` },
     { label: 'Audit Logs', pathname: `/org/[slug]/audit` },
+    { label: 'Documents', pathname: `/org/[slug]/docs` },
   ]
 
   // const { data: allProjects } = useProjectsQuery()
